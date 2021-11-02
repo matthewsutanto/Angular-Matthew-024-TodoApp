@@ -3,11 +3,11 @@ function requiredHTTPS(req, res, next) {
     if (
         !res.secure
         // untuk server yang di deploy di heroku
-        && res.get('x-forwarded-proto') !== "https"
+        && res.get('x-forwarded-proto') !== 'https'
     ) {
         return res.redirect(
             'https://' + req.get('host') + req.url
-        )
+        );
     }
     next();
 }
@@ -18,10 +18,10 @@ const port = process.env.PORT || 8080
 
 app.use(requiredHTTPS);
 // nama app di package.json
-app.use(express.static('./dist/todolist'));
+app.use(express.static('./dist/Angular-Matthew-024-TodoApp'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', { root: 'dist/todolist/' }),
+    res.sendFile('index.html', { root: 'dist/Angular-Matthew-024-TodoApp' }),
 );
 
 app.listen(port, () => {
