@@ -18,10 +18,10 @@ const port = process.env.PORT || 8080
 
 app.use(requiredHTTPS);
 // nama app di package.json
-app.use(express.static('./dist/Angular-Matthew-024-TodoApp'));
+app.use(express.static('./dist/todolist'));
 
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', { root: 'dist/Angular-Matthew-024-TodoApp' }),
+    res.sendFile('index.html', { root: 'dist/todolist' }),
 );
 
 app.listen(port, () => {
